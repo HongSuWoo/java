@@ -14,6 +14,9 @@ public class Application01
         System.out.println(true);
         System.out.println(false);
 
+
+
+
     }
 
 }

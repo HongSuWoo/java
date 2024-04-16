@@ -18,8 +18,8 @@ public class Application01
 
       System.out.println("num은 : " + ((num>=0)? "양수아디." : "0 또는 음수이다."));
       System.out.println("num2은 : " + ((num2>=0)? "양수아디." : "0 또는 음수이다."));
-      int num3 = 5;
-      int num4 = 0;
+      int num3 =  5;
+      int num4 =  0;
       int num5 = -5;
       String result3 =(num3 >0)? "양수이다.":(num3 ==0)? "0 이다." :"음수이다." ;
       System.out.println(result3);

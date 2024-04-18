@@ -36,7 +36,7 @@ public class Application04
                     //해당하는 문자열이 강제로 정수로 바뀝니다. 정수로 바뀐 양쪽의수를 중간에 기호로 계산한다.
         else
             System.out.println("제대로 입력해라");
-        
+
         return " "+result;
 
 

@@ -80,7 +80,22 @@ public class A_for
             }
         }
     }
+    public void ppp()
+    {
+        int line = 7;
+        for(int i=1;i<=7;i++)
+        {
+            for(int j=0;j<=i;j++)
+                System.out.print((char)('A'+j));
+            for(int x=i;x<line;x++)
+                System.out.print((char)('a' + x));
+            System.out.println();
 
+        }
+
+
+
+    }
 
 
 

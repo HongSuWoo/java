@@ -2,7 +2,8 @@ package com.ohgiraffers.section01.array;
 
 import java.util.Scanner;
 
-public class test {
+public class test
+{
   public static void main(String[] args)
   {
       double avg = 0.0;

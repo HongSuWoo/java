@@ -1,3 +1,4 @@
+/*
 package test;
 
 public class Database
@@ -7,13 +8,13 @@ public class Database
         private String bookName;
         private int bookNum;
 
-public Customer() {}
+
 public Customer(String name, int age)
     {
     this.name = name;
     this.age = age;
     }
-public BookAdd() {}
+
 public BookAdd(String bookName, int bookNum)
     {
     this.bookName = bookName;
@@ -47,3 +48,4 @@ public BookAdd(String bookName, int bookNum)
     }
 
 }
+*/

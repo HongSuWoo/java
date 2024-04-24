@@ -1,3 +1,4 @@
+/*
 package test;
 
 import com.ohjiraffers.section01.user_type.Member;
@@ -36,3 +37,4 @@ public class Lib
 
     }
 }
+*/

@@ -1,3 +1,4 @@
+/*
 package test;
 
 import test.Database;
@@ -66,3 +67,4 @@ public class Counter
 
 
 }
+*/

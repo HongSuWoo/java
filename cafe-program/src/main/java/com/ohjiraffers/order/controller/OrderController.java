@@ -12,6 +12,15 @@ public class OrderController {
     private OrderRepository orderR = new OrderRepository();
     int sel;
 
+    public void controllerInput(String input)
+    {
+
+        System.out.println(input);
+
+
+
+    }
+
     public String order(OrderDTO orderDTO)
     {
         // 컨트롤러 계층에서는 각 기능을 수행하기 위한 필수값의 누락이 있는지 검사한다.

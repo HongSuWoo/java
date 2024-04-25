@@ -34,14 +34,15 @@ public class Application {
             switch (input)
             {//switch 객체에 input 변수에 들어갈 사용자가  주문할 부분을 다양하게 case별로실행
                 case 1 : // 주문등록
-                    System.out.print("주문할 메뉴 이름을 등록해주세요 : ");
+                    System.out.print("주문할 메뉴 이름들 을 등록해주세요 : ");
                     menu =sc.nextLine();
-                    System.out.println("수량을 입력해주세요 :");
-                    quantity = sc.nextInt();
-                    System.out.println("가격을 입력해주세요 : ");
-                    price = sc.nextInt();
-                    OrderDTO orderDTO = new OrderDTO(menu,price,quantity);
-                    orderController.order(orderDTO);
+                    System.out.println("수량들 을 입력해주세요 :");
+                    menu += "m " + sc.nextLine();
+                    System.out.println("가격들 을 입력해주세요 : ");
+                    menu += "n " + sc.nextLine();
+                    orderController.controllerInput(menu);
+                    //OrderDTO orderDTO = new OrderDTO(menu,price,quantity);
+                   // orderController.order(orderDTO);
                     break;
                 case 2 : // 주문삭제
                     System.out.println("삭제 하실 번호를 입력해주세요.");

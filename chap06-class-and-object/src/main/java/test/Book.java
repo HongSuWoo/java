@@ -1,10 +1,5 @@
 package test;
 
-import com.ohjiraffers.section01.user_type.Member;
-
-import java.util.ArrayList;
-import java.util.Scanner;
-
 public class Book
 {
     int num;

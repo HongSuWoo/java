@@ -39,7 +39,8 @@ public class OrderDTO {
 
 
     @Override
-    public String toString() {
-        return "OrderDTO[" + "메뉴='" + menuName + ", 수량=" + quantity + ", 가격=" + price + ",  합계 가격 = " + price*quantity + "]";
+    public String toString()
+    {
+        return "OrderDTO[" + "메뉴=" + menuName + ", 수량=" + quantity + ", 가격=" + price + ",  합계 가격 = " + price*quantity + "]";
     }
 }

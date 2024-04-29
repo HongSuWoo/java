@@ -1,2 +1,4 @@
-package com.ohgiraffers.dto;public class MemberDTO {
+package com.ohgiraffers.dto;
+
+public class MemberDTO {
 }

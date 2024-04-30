@@ -1,8 +1,5 @@
 package com.ohgiraffers.dto;
 
-import com.ohgiraffers.dao.BookRepository;
-
-import java.awt.print.Book;
 
 public class BookDTO
 {
@@ -10,11 +7,8 @@ public class BookDTO
     private String bookName; //1
     private String bookAuthor; //2
     private int bookPrice; //3
-    private int bookStock;
-    private String bookReser; //
     private int bookCount; //
     private String bookRent; //
-    private int bookPeriod; //
     private int bookRentalCost;
 
     int bookRentCost;
@@ -23,10 +17,6 @@ public class BookDTO
         this.bookName = bookName;
         this.bookAuthor = bookAuthor;
         this.bookPrice = bookPrice;
-        if(this.bookPrice>=8000)
-            this.bookPeriod =4;
-        else
-            this.bookPeriod =2;
         if(this.bookPrice>=8000)
             this.bookRentalCost =1000;
         else
@@ -66,22 +56,6 @@ public class BookDTO
         this.bookPrice = bookPrice;
     }
 
-    public int getBookStock() {
-        return bookStock;
-    }
-
-    public void setBookStock() {
-        this.bookStock = 1;
-    }
-
-    public String getBookReser() {
-        return bookReser;
-    }
-
-    public void setBookReser(String bookReser) {
-        this.bookReser = bookReser;
-    }
-
     public int getBookCount() {
         return bookCount;
     }
@@ -98,11 +72,6 @@ public class BookDTO
         this.bookRent = bookRent;
     }
 
-    public int getBookPeriod() {
-        return bookPeriod;
-    }
-
-
 
     public int getBookRentalCost() {
         return bookRentalCost;
@@ -112,17 +81,14 @@ public class BookDTO
 
     @Override
     public String toString() {
-        return "BookDTO[" +
-                "bookNum=" + bookNum +
-                ", bookName='" + bookName + '\'' +
-                ", bookAuthor='" + bookAuthor + '\'' +
-                ", bookPrice=" + bookPrice +
-                ", bookStock=" + bookStock +
-                ", bookReser='" + bookReser + '\'' +
-                ", bookCount=" + bookCount +
-                ", bookRent='" + bookRent + '\'' +
-                ", bookPeriod=" + bookPeriod +
-                ", bookRentalCost=" + bookRentalCost +
-                "]\n";
+        return "도서 " +
+                "번호 = " + bookNum +
+                ", 제목 = " + bookName +
+                ", 저자 = " + bookAuthor +
+                ", 가격 = " + bookPrice +
+                ", 빌린 횟수 = " + bookCount +
+                ", 빌려간분 = " + bookRent +
+                ", 대여비용 = " + bookRentalCost +
+                "\n";
     }
 }

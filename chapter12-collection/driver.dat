@@ -1,0 +1,4 @@
+#jdbc driver
+#Wed May 01 15:40:57 KST 2024
+dd=dsdasda
+driver=com.mysql.cj.jdbc.Driver

@@ -1,0 +1,117 @@
+select
+concat(menu_code, " : " , menu_name)
+from tbl_menu as ddd;
+//as 별칭
+
+
+//asc 오름차순  desc 내림차순
+select 
+	menu_code,
+	menu_name,
+	menu_price
+from tbl_menu
+order by menu_price desc;
+
+
+
+
+select 
+	menu_code,
+	menu_name,
+	menu_code * menu_price
+from tbl_menu
+order by 
+	menu_code asc;
+	
+
+	
+select
+	field('A', 'A', 'B', 'C');
+
+SELECT
+	field(orderable_status, 'N', 'Y')
+FROm tbl_menu;
+
+select
+	category_code ,
+	category_name ,
+	ref_category_code
+	from tbl_category
+order by ref_category_Code is null desc;
+
+
+
+select 
+	menu_name,
+	menu_price,
+	orderable_status
+from tbl_menu
+where orderable_status = 'Y';
+
+
+
+select 
+	menu_code,
+	menu_name,
+	menu_price
+from tbl_menu
+where menu_price >= 13000;
+order by menu_price;
+
+
+select
+	*
+from tbl_menu
+where orderable_status != 'Y';
+
+
+select
+*
+from tbl_menu
+where orderable_status = 'Y' and category_code = 10;
+
+
+
+
+select
+	menu_name,
+	menu_price
+from tbl_menu
+where menu_name like "%갈치%";
+
+
+
+select
+	menu_name,
+	menu_price
+from tbl_menu
+where 
+menu_name not like "%마늘%" or  "%갈릭%";
+
+
+
+
+select
+	category_code ,
+	category_name,
+	ref_category_code
+from tbl_category
+where ref_category_code is not null;
+
+
+
+select
+COUNT(*) AS FISH_COUNT
+from fish_info
+where time like "2021%";
+
+
+select
+ROUND(AVG(IFNULL(LENGTH, 10)),2)  AS AVERAGE_LENGTH
+from fish_info;
+
+SELECT
+    CONCAT(MAX(length), "cm") as MAX_LENGTH
+from fish_info
+
+

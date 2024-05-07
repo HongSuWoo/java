@@ -106,6 +106,8 @@ from fish_info
 where time like "2021%";
 
 
+
+
 select
 ROUND(AVG(IFNULL(LENGTH, 10)),2)  AS AVERAGE_LENGTH
 from fish_info;
@@ -113,5 +115,381 @@ from fish_info;
 SELECT
     CONCAT(MAX(length), "cm") as MAX_LENGTH
 from fish_info
+
+
+select
+category_code
+from tbl_menu
+order by category_code;
+
+select
+distinct category_code
+from tb_menu;
+
+select
+ref_Category_code
+from tbl_category;
+
+select distinct ref_category_code
+from tbl_category;
+
+select
+category_code,
+orderable_status
+from tbl_menu;
+
+
+-- distinct (중복값을 제거함)
+select distinct
+category_code,
+orderable_status
+from tbl_menu;
+
+select distinct
+category_code,
+orderable_status
+from tbl_menu;
+
+
+
+--가격이 가장 높은애 3개
+select
+	menu_code,	
+	menu_name,
+	menu_price
+fro tbl_meny
+order by meny_price;
+
+
+select
+	menu_code,	
+	menu_name,
+	menu_price
+from tbl_menu
+order by meny_price;
+limit	3;
+
+
+-- 2번행부터 5번 행까지 조회
+
+select
+	menu_code,	
+	menu_name,
+	menu_price
+from tbl_menu
+order by menu_price desc
+limit 3,5;
+
+-- 상위 다섯줄의 행만 조회
+SELECT 
+    menu_code,
+    menu_name,
+    menu_price
+FROM
+    tbl_menu
+ORDER BY 
+    menu_price DESC,
+    menu_name ASC
+LIMIT 5;
+
+
+
+-- join두테이블을 연결할때
+
+select
+menu_code,
+menu_name,
+category_code,
+menu_price
+from tbl_menu
+order by menu_price(de)
+
+select
+*
+from tbl_category; 
+
+
+// in a join
+select
+menu_code ,
+menu_name,
+menu_price ,
+m.menu_price
+from tbl menu m;
+join tbl_category_c on (m.category_cde = category +f;code;
+
+
+
+
+select
+a. catecoty _name,
+b. menu_name;
+from tbl_category a
+left join tbl_menu b on a.category_code = b.category_code;
+
+
+
+select
+	b.menu_name,
+	a.category_name,
+	
+	b.menu_price
+from tbl_menu b
+left join tbl_category a on a.category_code = b.category_code ;
+
+
+
+
+select
+	a.menu_name,
+	b.category_name
+from tbl_menu a
+RIGHT JOIN tbl_category  b on a.category_code = b.category_code;
+
+
+
+--cross join
+select
+a.menu_name,
+b.category_name
+from tbl_menu a
+cross join tbl_category b;
+
+select
+distnct(*)
+from tbl_menu a 
+cross join tbl_category b;
+group by 
+
+
+select
+	a.categor_name as name,
+	b.category_name as b_code
+from tbl_category a
+join tbl_category b on a.ref_category_code = b category_code;
+
+
+
+select * from tbl_category ;
+
+/* JOIN 알고리즘 */
+/* NESTED LOOP JOIN */
+-- MySQL은 기본적으로 NESTED LOOP JOIN을 사용한다.
+
+-- 두 개 이상의 테이블에서 하나의 집합을 기준으로 순차적으로 상대방 Row를 결합하여 조합하는 방식
+
+-- 중첩 반복문처럼 첫번 째 테이블의 Row와 관련된 두번째 테이블에 대한 Row를 검색하고 이후 첫 번째
+-- 테이블의 다음 Row에 대해 두번쨰 테이블에 대한 것을 검색하며 이후 이와 같은 방식을 반복한다.
+
+-- MySQL은 기본적으로 NESTED LOOP JOIN을 사용하지만 이를 강제하려면 힌트절을 작성해 HASH JOIN을
+-- 사용하지 않도록 강제할 수 있다.
+
+
+select
+	a.menu_name,
+	b.category_code
+from tbl_menu a
+join tbl_category b on a.category_code = b.category_code;
+
+
+
+/* HASH JOIN */
+-- MySQL8.0.18버전 이후 지원하게 되었다.
+-- 대규모 데이터 세트에 대한 조인 연산을 효과적으로 진행할 수 있다.
+
+-- 해싱 단계에서 조인을 수행하는 두 테이블 중 작은 쪽을 선택하여 해시 테이블을 만들어 메모리에 저장하고
+-- 해시 함수를 사용해서 각 행을 특정 "해시 버킷"에 할당한다.
+
+-- 조인 단계에서 다른 테이블을 순회하며 각 행에 대해 동일한 해시 함수를 사용하여 해당 행이 어떤 버킷에 속하는지
+-- 결정하고 이 버킷의 모든 행과 해당 행을 비교하여 조인 조건을 만족한다.
+
+-- 이 방법은 조인할 테이블 중 하나가 메모리에 적합할 만큼 충분히 작아야 한다. 그렇지 않으면 해시 테이블이 메모리를
+-- 넘어서 디스크로까지 넘어가고 이는 성능 저하를 초래한다.
+
+-- HASH JOIN은 등가 조인('=' 연산자를 사용하는 조인)에만 사용할 수 있고 비등가 조인에는 사용할 수 없다.
+SELECT /*+ HASH_JOIN(a) */
+    a.menu_name,
+    b.category_name
+FROM
+    tbl_menu a
+JOIN tbl_category b ON a.category_code = b.category_code;
+
+
+
+--group by
+==같은 값을 묶을때 사용 하는 키워드이다.
+select
+	
+	category_code,
+	count(*)
+from tbl_menu
+group by category_code;
+
+
+
+select
+	menu_name,
+	menu_price
+	from tbl_menu
+	
+
+select
+	sum(menu_price)
+from tbl_menu;
+
+
+
+
+select 	
+	menu_name,
+	avg(menu_price)
+from tbl_menu
+group by menu_name;
+
+
+--여러 값을 묶는경우
+select
+	category_code,
+	menu_price,
+	count(*)
+from tbl_menu
+group by category_Code , menu_price ;
+
+--그룹에 조건을 부여하기
+select
+	category_code
+from tbl_menu
+where category_code > 6 -- sql 쿼리 전체의 대한 조건
+group by category_Code;
+having category_code between 5 and 8 --그룹 집합에 대한 조건
+
+
+
+
+
+
+
+select
+name
+age
+from users
+where age >30 && ciry = "서울"
+limit 5;
+
+select
+from orders
+where amount > 100
+ORDER BY order_data desc;
+
+
+SELECT
+    u.name,
+    o.amount
+FROM
+    users u
+JOIN
+    orders o ON u.user_id = o.user_id;
+
+
+
+
+10000이하인 애들의 평균값 구하기.
+
+동양 음식과 서양 음식 중 평균가가 높은 쪽으로 메뉴명을 가격별로 내림차순으로 정렬.
+
+SELECT
+
+
+from tbl_menu as m
+join m on tbl_category
+
+select 
+*
+
+from tbl_menu
+full outer join tbl_category;
+on tbl_menu.key = tbl_category.key;
+
+
+
+테이블 메뉴에 테이블 카테고리를 조인했을 경우 널의 총 곗수를 구하고
+두 테이블중의 널이 많은 애를 컬럼명으로 갯수를 출력한다.
+
+
+
+
+
+
+
+
+select
+*
+from tbl_menu right join tbl_category;
+
+
+
+
+
+
+
+SELECT 
+*
+
+FROM tbl_menu
+LEFT JOIN tbl_category ON tbl_menu.category_code = tbl_category.category_code
+where tbl_menu is null
+UNION
+
+SELECT *
+FROM tbl_menu
+RIGHT JOIN tbl_category ON tbl_menu.category_code = tbl_category.category_code;
+
+
+
+
+
+select
+id,
+length
+from fish_info
+order by length desc, 
+id asc
+limit 10;
+
+SELECT
+    id,
+    length
+FROM
+    fish_info
+ORDER BY
+    length DESC,
+    id ASC
+LIMIT 10;
+
+
+
+
+주문금액이 5000이상인 음료 메뉴들의 총금액을 조회
+
+select
+count(*)
+from tbl_menu
+where category_name = "음료";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
